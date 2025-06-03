@@ -7,9 +7,13 @@
 <body>
   <h2>Add Package</h2>
 
-  <form action="{{ route('add_package') }}" method="POST">
+  <form action="{{ route('package.store') }}" method="POST">
     @csrf
-
+@if(session('success'))
+                 <div style="color: green;">
+                 {{ session('success') }}
+                 </div>
+                @endif
     <!-- Package Name -->
     <label for="package_name">Package Name</label><br>
     <input type="text" id="package_name" name="package_name" required><br><br>

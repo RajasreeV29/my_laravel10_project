@@ -15,13 +15,14 @@ use App\Http\Controllers\Api\PackageApiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-Route::get('package', [PackagesController::class, 'package'])->name('package');;
-Route::post('add_package', [PackagesController::class, 'store'])->name('add_package');;
-// Route::post('create', [PackagesController::class, 'add_package'])->name('create');;
-Route::get('add_package', [PackageApiController::class, 'add_package']);
+    return view('package');
+})->name('package');
+// Route::get('package', [PackagesController::class, 'package'])->name('package');;
+// Route::post('add_package', [PackagesController::class, 'store'])->name('add_package');;
+// // Route::post('create', [PackagesController::class, 'add_package'])->name('create');;
+// Route::get('add_package', [PackageApiController::class, 'add_package']);
 
 
-Route::get('view_package', [PackagesController::class, 'index'])->name('view_package')->name('view_package');;
-Route::post('/delete_package', [PackagesController::class, 'delete'])->name('delete_package');
+// Route::get('view_package', [PackagesController::class, 'index'])->name('view_package')->name('view_package');;
+// Route::post('/delete_package', [PackagesController::class, 'delete'])->name('delete_package');
+Route::resource('package',PackagesController::class);

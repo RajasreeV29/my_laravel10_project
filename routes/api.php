@@ -19,12 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('package', [PackageApiController::class, 'show']);
-Route::post('create_package', [PackageApiController::class, 'create_package'])->name('create_package');;
+// Route::get('package', [PackageApiController::class, 'show']);
+// Route::post('create_package', [PackageApiController::class, 'create_package'])->name('create_package');;
 
-Route::get('view_package', [PackageApiController::class, 'view_package']);
+// Route::get('view_package', [PackageApiController::class, 'view_package']);
 
-Route::get('edit_package/{id}', [PackageApiController::class, 'edit_package']);
+// Route::get('edit_package/{id}', [PackageApiController::class, 'edit_package']);
 
-Route::delete('delete_package', [PackageApiController::class, 'delete']);
+// Route::delete('delete_package', [PackageApiController::class, 'delete']);
 

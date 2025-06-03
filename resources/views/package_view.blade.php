@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Package List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"> <!-- For trash icon -->
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
-                <th>#</th>
+           
                 <th>Package Name</th>
                 <th>Credits</th>
                 <th>Credit Due</th>
@@ -26,25 +27,33 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($packages as $index => $package)
-                <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ $package->package_name }}</td>
-                    <td>{{ $package->credits }}</td>
-                    <td>{{ $package->credit_due }}</td>
-                    <td>{{ $package->status }}</td>
-                    <td>
-                        <a href="{{ url('edit_package/'.$package->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="{{ url('delete_package/'.$package->id) }}" class="btn btn-sm btn-danger"
-   onclick="return confirm('Are you sure you want to delete this package?')">Delete</a>
+            {{-- @if($packages->count()) --}}
+                @foreach($package as $p)
+                    <tr>
+                        {{-- <td>{{ $index + 1 }}</td> --}}
+                        <td>{{ $p->package_name }}</td>
+                        <td>{{ $p->credits }}</td>
+                        <td>{{ $p->credit_due }}</td>
+                        <td>{{ $p->status }}</td>
+                        <td>
+                            <a href="{{ route('package.edit', $p->id) }}" class="btn btn-sm btn-primary">Edit</a>
 
-                    </td>
-                </tr>
-            @empty
+                            <form action="{{ route('package.destroy', $p->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this Package?')" title="Delete">
+                                    Delete <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            {{-- @else
                 <tr>
                     <td colspan="6" class="text-center">No packages found.</td>
                 </tr>
-            @endforelse
+            @endif --}}
         </tbody>
     </table>
 </div>

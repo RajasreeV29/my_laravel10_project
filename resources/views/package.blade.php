@@ -42,8 +42,8 @@
     <h1>Welcome to Package Manager</h1>
 
     <div class="button-container">
-        <a href="view_package" class="btn">View Packages</a>
-        <a href="add_package" class="btn">Create Package</a>
+        <a href="{{ route('package.index') }}" class="btn">View Packages</a>
+        <a href="{{ route('package.create') }}" class="btn">Create Package</a>
     </div>
 
 </body>
