@@ -24,6 +24,7 @@ class PackagesApiiController extends Controller
      */
     public function store(Packagereqest $request)
     {
+        dd('dfd');
        DB::table(table:"packages")->insert(values:[
             'package_name'=>$request->package_name,
             'credits'=>$request->credits,

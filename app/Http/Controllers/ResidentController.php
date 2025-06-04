@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Resident;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ResidentRequest;
+use App\Http\Requests\ResidentUpdateRequest;
+
+
 
 class ResidentController extends Controller
 {
@@ -13,6 +17,7 @@ class ResidentController extends Controller
      */
     public function index()
     {
+        // dd('dfg');
        $resid= Resident::all();
        return view('view_residents', compact('resid'));
     }
@@ -22,16 +27,21 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        //
+        // dd("defe");
+        return view('add_resident');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
+   public function store(ResidentRequest $request)
+{ 
+    // dd("hi");
+    Resident::create($request->validated());
+    return redirect()->route('resident.index')->with('success', 'updated');
+}
+
 
     /**
      * Display the specified resource.
@@ -44,24 +54,29 @@ class ResidentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Resident $resident)
+    public function edit( $id)
     {
-        //
+        $resident = Resident::findOrFail($id);
+        return view('edit_resident',compact('resident'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Resident $resident)
+    public function update(ResidentUpdateRequest $request, string $id)
     {
-        //
+        Resident::findOrFail($id)->update($request->validated());
+        return redirect()->route('resident.index')->with('success','updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Resident $resident)
+    public function destroy(string $id)
     {
-        //
+       $resident = Resident::findOrFail($id);
+        $resident->delete();
+
+        return redirect()->route('resident.index')->with('success','deleted!');
     }
 }

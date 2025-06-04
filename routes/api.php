@@ -38,3 +38,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 Route::apiResource('packagemod',PackagesApiiController::class);
 
+Route::apiResource('resident',PackagesApiiController::class);

@@ -35,6 +35,8 @@
                         <td>{{ $p->credits }}</td>
                         <td>{{ $p->credit_due }}</td>
                         <td>{{ $p->status }}</td>
+                        <td>{{ $p->status }}</td>
+
                         <td>
                             <a href="{{ route('package.edit', $p->id) }}" class="btn btn-sm btn-primary">Edit</a>
 

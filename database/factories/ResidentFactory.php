@@ -17,7 +17,7 @@ class ResidentFactory extends Factory
     public function definition(): array
     {
         return [
-           'res_name' => fake()->words(2, true), // e.g. "Premium Plan"
+           'res_name' => fake()->name(), // e.g. "Premium Plan"
             'email' => fake()->unique()->safeEmail,
             'phone' => fake()->phoneNumber(), // or use 'Y-m-d' if you need formatted
             'gender' =>fake()->randomElement(['Male', 'Female']), // nullable, can also use null
