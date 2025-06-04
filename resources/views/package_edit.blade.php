@@ -5,7 +5,7 @@
   <title>Add Package</title>
 </head>
 <body>
-  <h2>Add Package</h2>
+  <h2>Edit Package</h2>
 
   <form action="{{ route("package.update", $package->id)}}" method="POST">
     @csrf

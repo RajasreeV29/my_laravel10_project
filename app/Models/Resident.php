@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Package extends Model
+class Resident extends Model
 {
     use HasFactory;
-    protected $fillable = ['package_name', 'credits','credit_due','status'];
-
+    protected $fillable = ['res_name', 'email','phone','gender','status'];
 }

@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PackageApiController;
-
+use App\Http\Controllers\PackagemodelController;
+use App\Http\Controllers\Api\PackagesApiiController;
+use App\Http\Controllers\Api\PackagesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,13 +19,22 @@ use App\Http\Controllers\Api\PackageApiController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Route::middleware('api')->group(function (): void {
+//     Route::put('/packages/{id}',[PackagesController::class,'update']);
+   
+// });
 
-// Route::get('package', [PackageApiController::class, 'show']);
-// Route::post('create_package', [PackageApiController::class, 'create_package'])->name('create_package');;
+// Route::get('package', [PackagesController::class, 'show']);
+// Route::post('create_package', [PackagesController::class, 'create_package'])->name('create_package');;
 
-// Route::get('view_package', [PackageApiController::class, 'view_package']);
+// Route::get('view_package', [PackagesController::class, 'view_package']);
 
-// Route::get('edit_package/{id}', [PackageApiController::class, 'edit_package']);
+// Route::get('edit_package/{id}', [PackagesController::class, 'edit_package']);
 
-// Route::delete('delete_package', [PackageApiController::class, 'delete']);
+// Route::delete('delete_package', [PackagesController::class, 'delete']);
+
+// Route::get('testing',function(){
+//  return 'this is a test api';
+// });
+Route::apiResource('packagemod',PackagesApiiController::class);
 

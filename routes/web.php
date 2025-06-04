@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PackagesController;
+use App\Http\Controllers\ResidentController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PackageApiController;
 /*
@@ -26,3 +28,4 @@ Route::get('/', function () {
 // Route::get('view_package', [PackagesController::class, 'index'])->name('view_package')->name('view_package');;
 // Route::post('/delete_package', [PackagesController::class, 'delete'])->name('delete_package');
 Route::resource('package',PackagesController::class);
+Route::resource('resident',ResidentController::class);
