@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ResidentRequest;
 use App\Http\Requests\ResidentUpdateRequest;
+use App\Models\Package;
 
 
 
@@ -28,7 +29,9 @@ class ResidentController extends Controller
     public function create()
     {
         // dd("defe");
-        return view('add_resident');
+        $packages = Package::all();
+        
+        return view('add_resident',compact('packages'));
     }
 
     /**
@@ -56,8 +59,9 @@ class ResidentController extends Controller
      */
     public function edit( $id)
     {
+        $packages = Package::all();
         $resident = Resident::findOrFail($id);
-        return view('edit_resident',compact('resident'));
+        return view('edit_resident',compact('resident','packages'));
     }
 
     /**

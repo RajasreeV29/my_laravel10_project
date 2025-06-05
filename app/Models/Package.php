@@ -10,4 +10,9 @@ class Package extends Model
     use HasFactory;
     protected $fillable = ['package_name', 'credits','credit_due','status'];
 
+    public function residents()
+{
+    return $this->hasMany(Resident::class);
+}
+
 }

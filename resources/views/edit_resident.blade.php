@@ -320,7 +320,13 @@ $(document).ready(function(){
                         <input type="radio" name="status" value="0" {{ $resident->status == 0 ? 'checked' : '' }}>
                          Inactive
                         </label>
-					</div>				
+					</div>	
+					<div class="form-group">
+                                      <label for="package_id">Package</label>
+									  
+                                    <input type="readonly" id="gender" name="gender" value={{ $resident->package->package_name }}  class="form-control" required>
+
+                        </div>			
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

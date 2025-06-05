@@ -27,6 +27,7 @@ class ResidentRequest extends FormRequest
             'phone'    => 'required|string|max:255',
             'gender'   => 'required|string|max:255',
             'status'   => 'required',
+            'package_id' => 'required|exists:packages,id',
         ];
     }
 }

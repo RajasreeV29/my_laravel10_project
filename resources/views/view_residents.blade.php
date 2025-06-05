@@ -283,29 +283,22 @@ $(document).ready(function(){
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th>
-							{{-- <span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span> --}}
-						</th>
+						
 						<th style="color: red;">Resident Name</th>
 						<th style="color: red;">Email</th>
 						<th style="color: red;">Phone</th>
 						<th style="color: red;">Gender</th>
 						<th style="color: red;">status</th>
-                        
+                        <th>
+						<th style="color: red;">Package Name</th>
+							
+						</th>
 					</tr>
 				</thead>
 				<tbody>
                     @foreach($resid as $r)
 					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
+						
 						<td>{{ $r->res_name }}</td>
 						<td>{{ $r->email }}</td>
 						<td>{{ $r->phone }}</td>
@@ -323,10 +316,14 @@ $(document).ready(function(){
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger btn-sm"
                                         onclick="return confirm('Are you sure you want to delete this Package?')" title="Delete">
-                                    Delete <i class="fas fa-trash"></i>
+                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>
+						<td>
+							{{ $r->package->package_name}}
+							
+						</td>
 					</tr>
 					@endforeach
 				</tbody>

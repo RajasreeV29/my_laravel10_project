@@ -366,6 +366,16 @@
                                             <option value="0">Inactive</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                      <label for="package_id">Package</label>
+                                        <select name="package_id" class="form-control" required>
+                                            <option value="">Select a Package</option>
+                                                @foreach ($packages as $package)
+                                                 <option value="{{ $package->id }}">{{ $package->package_name }}</option>
+                                                     @endforeach
+                                         </select>
+                                    </div>
+                                    
                                 </div>
                                 <div class="modal-footer">
                                     <a href="/resident" class="btn btn-secondary">Cancel</a>
